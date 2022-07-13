@@ -1,12 +1,12 @@
 var fs = require('fs')
 
 module.exports = {
-    modpack_name: 'My ModPack',
-    profile_dir: 'myModpack',
+    modpack_name: 'Chimbaland 3',
+    profile_dir: 'chimbaland',
 
-    repo: 'https://github.com/Jleguim/chimba-installer/',
-    branch: 'mods',
-    name: 'chimba-installer',
+    repo: 'https://github.com/Jleguim/chimbamods/',
+    branch: 'main',
+    name: 'chimbamods',
 
     image: 'data:image/png;base64,' + fs.readFileSync('./public/img/image.png', 'base64'),
     forgeVersion: '1.16.5-forge-36.2.34',
