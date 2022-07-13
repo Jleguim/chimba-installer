@@ -1,12 +1,12 @@
 {
-  "name": "chimba-installer",
-  "productName": "Chimbaland 3 Installer",
-  "version": "2.1.1",
-  "description": "Instalador de mods Chimbaland 3",
+  "name": "modpack-installer",
+  "productName": "ModPack Installer",
+  "version": "3.0.0",
+  "description": "ModPack installer for Minecraft.",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "build": "electron-packager . --icon ./icon.ico --out ./bin --overwrite --asar"
+    "build": "electron-packager ./ --icon ./icon.ico --out ./bin --overwrite --asar"
   },
   "keywords": [],
   "author": "Jleguim",
