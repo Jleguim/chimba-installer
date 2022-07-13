@@ -6,7 +6,7 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "build": "electron-packager ./ --icon ./icon.ico --out ./bin --overwrite --asar"
+    "build": "electron-packager ./ --icon ./public/img/icon.ico --out ./bin --overwrite --asar"
   },
   "keywords": [],
   "author": "Jleguim",
