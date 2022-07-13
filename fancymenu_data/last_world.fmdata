@@ -1,0 +1,7 @@
+type = last_world
+
+last_world {
+  is_server = false
+  world = C:/Users/jeffr/AppData/Roaming/.minecraft/profiles/Chimbaland/saves/world
+}
+

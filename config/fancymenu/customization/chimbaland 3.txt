@@ -1,0 +1,381 @@
+type = menu
+
+customization-meta {
+  identifier = net.minecraft.client.gui.screen.MainMenuScreen
+  randomgroup = 1
+  renderorder = foreground
+  randommode = false
+  requiredmods = chimbaland_core
+  randomonlyfirsttime = false
+}
+
+customization {
+  action = setscale
+  scale = 2
+}
+
+customization {
+  baseheight = 1080
+  action = autoscale
+  basewidth = 1920
+}
+
+customization {
+  keepaspectratio = false
+  action = backgroundoptions
+}
+
+customization {
+  identifier = %id=button_compatibility_id:mc_titlescreen_multiplayer_button%
+  orientation = mid-right
+  x = -140
+  action = movebutton
+  y = -10
+}
+
+customization {
+  identifier = %id=button_compatibility_id:mc_titlescreen_multiplayer_button%
+  width = 140
+  action = resizebutton
+  height = 20
+}
+
+customization {
+  identifier = %id=button_compatibility_id:mc_titlescreen_multiplayer_button%
+  action = setbuttonlabel
+  value = Multijugador
+}
+
+customization {
+  identifier = %id=button_compatibility_id:mc_titlescreen_multiplayer_button%
+  loopbackgroundanimations = true
+  restartbackgroundanimations = true
+  action = setbuttontexture
+  backgroundhovered = resources\empty.png
+  backgroundnormal = resources\empty.png
+}
+
+customization {
+  identifier = %id=button_compatibility_id:mc_titlescreen_multiplayer_button%
+  action = sethoverlabel
+  label = Pa onde vas tú?
+}
+
+customization {
+  identifier = %id=button_compatibility_id:mc_titlescreen_multiplayer_button%
+  seconds = 2.5
+  onlyfirsttime = true
+  fadein = true
+  fadeinspeed = 1.0
+  action = hidebuttonfor
+}
+
+customization {
+  identifier = %id=button_compatibility_id:mc_titlescreen_accessibility_button%
+  action = hidebutton
+}
+
+customization {
+  identifier = %id=376322%
+  action = hidebutton
+}
+
+customization {
+  identifier = %id=button_compatibility_id:mc_titlescreen_options_button%
+  orientation = element
+  orientation_element = vanillabtn:button_compatibility_id:mc_titlescreen_singleplayer_button
+  x = 0
+  action = movebutton
+  y = 51
+}
+
+customization {
+  identifier = %id=button_compatibility_id:mc_titlescreen_options_button%
+  width = 140
+  action = resizebutton
+  height = 20
+}
+
+customization {
+  identifier = %id=button_compatibility_id:mc_titlescreen_options_button%
+  action = setbuttonlabel
+  value = Configuración
+}
+
+customization {
+  identifier = %id=button_compatibility_id:mc_titlescreen_options_button%
+  loopbackgroundanimations = true
+  restartbackgroundanimations = true
+  action = setbuttontexture
+  backgroundhovered = resources\empty.png
+  backgroundnormal = resources\empty.png
+}
+
+customization {
+  identifier = %id=button_compatibility_id:mc_titlescreen_options_button%
+  action = sethoverlabel
+  label = ¡Configúrame!
+}
+
+customization {
+  identifier = %id=button_compatibility_id:mc_titlescreen_options_button%
+  seconds = 2.3
+  onlyfirsttime = true
+  fadein = true
+  fadeinspeed = 1.0
+  action = hidebuttonfor
+}
+
+customization {
+  identifier = %id=button_compatibility_id:mc_titlescreen_quit_button%
+  orientation = element
+  orientation_element = vanillabtn:button_compatibility_id:mc_titlescreen_multiplayer_button
+  x = 0
+  action = movebutton
+  y = 51
+}
+
+customization {
+  identifier = %id=button_compatibility_id:mc_titlescreen_quit_button%
+  width = 140
+  action = resizebutton
+  height = 20
+}
+
+customization {
+  identifier = %id=button_compatibility_id:mc_titlescreen_quit_button%
+  action = setbuttonlabel
+  value = Salir
+}
+
+customization {
+  identifier = %id=button_compatibility_id:mc_titlescreen_quit_button%
+  loopbackgroundanimations = true
+  restartbackgroundanimations = true
+  action = setbuttontexture
+  backgroundhovered = resources\empty.png
+  backgroundnormal = resources\empty.png
+}
+
+customization {
+  identifier = %id=button_compatibility_id:mc_titlescreen_quit_button%
+  action = sethoverlabel
+  label = Adiós :sob:
+}
+
+customization {
+  identifier = %id=button_compatibility_id:mc_titlescreen_quit_button%
+  seconds = 3.0
+  onlyfirsttime = true
+  fadein = true
+  fadeinspeed = 1.0
+  action = hidebuttonfor
+}
+
+customization {
+  identifier = %id=button_compatibility_id:mc_titlescreen_language_button%
+  action = hidebutton
+}
+
+customization {
+  identifier = %id=button_compatibility_id:mc_titlescreen_singleplayer_button%
+  orientation = mid-left
+  x = 0
+  action = movebutton
+  y = -10
+}
+
+customization {
+  identifier = %id=button_compatibility_id:mc_titlescreen_singleplayer_button%
+  width = 140
+  action = resizebutton
+  height = 20
+}
+
+customization {
+  identifier = %id=button_compatibility_id:mc_titlescreen_singleplayer_button%
+  loopbackgroundanimations = true
+  restartbackgroundanimations = true
+  action = setbuttontexture
+  backgroundhovered = resources\empty.png
+  backgroundnormal = resources\empty.png
+}
+
+customization {
+  identifier = %id=button_compatibility_id:mc_titlescreen_singleplayer_button%
+  action = sethoverlabel
+  label = Juega solo :(
+}
+
+customization {
+  identifier = %id=button_compatibility_id:mc_titlescreen_singleplayer_button%
+  seconds = 2.0
+  onlyfirsttime = true
+  fadein = true
+  fadeinspeed = 1.0
+  action = hidebuttonfor
+}
+
+customization {
+  identifier = %id=button_compatibility_id:forge_titlescreen_mods_button%
+  action = hidebutton
+}
+
+customization {
+  identifier = %id=button_compatibility_id:mc_titlescreen_realms_button%
+  action = hidebutton
+}
+
+customization {
+  orientation = element
+  restartbackgroundanimations = true
+  delayappearanceseconds = 5.5
+  buttonaction = opengui
+  backgroundhovered = resources\empty.png
+  label = Mods
+  loopbackgroundanimations = true
+  orientation_element = vanillabtn:button_compatibility_id:mc_titlescreen_singleplayer_button
+  x = 4
+  width = 104
+  actionid = 06ffa2ce-648c-4a95-bcd4-e49c1dd207c31655596912136
+  action = addbutton
+  y = 153
+  delayappearance = true
+  backgroundnormal = resources\empty.png
+  value = net.minecraftforge.fml.client.gui.screen.ModListScreen
+  delayappearanceeverytime = false
+  height = 112
+}
+
+customization {
+  orientation = element
+  delayappearanceseconds = 4.0
+  url = https://media.discordapp.net/attachments/461270566670696448/987955884783177748/V3DiscordLogo3.png
+  fadein = true
+  fadeinspeed = 1.0
+  orientation_element = 06ffa2ce-648c-4a95-bcd4-e49c1dd207c31655596912136
+  x = 5
+  width = 100
+  action = addwebtexture
+  actionid = 895b1d29-9e8a-4bfa-9e9e-c752b48e14971655692705189
+  y = 6
+  delayappearance = true
+  delayappearanceeverytime = false
+  height = 100
+}
+
+customization {
+  orientation = top-centered
+  delayappearanceseconds = 0.5
+  path = resources/title.png
+  fadein = true
+  fadeinspeed = 1.0
+  x = -283
+  width = 567
+  action = addtexture
+  actionid = 1d0f9377-2473-45fd-839a-de3661af918f1655692857209
+  y = -54
+  delayappearance = true
+  delayappearanceeverytime = false
+  height = 320
+}
+
+customization {
+  orientation = element
+  restartbackgroundanimations = true
+  buttonaction = reloadmenu
+  backgroundhovered = resources\empty.png
+  label = R
+  loopbackgroundanimations = true
+  orientation_element = vanillabtn:button_compatibility_id:mc_titlescreen_multiplayer_button
+  x = 108
+  width = 20
+  actionid = 11a8bf31-b9d0-4dea-85c5-9844382843b01655693470235
+  action = addbutton
+  y = 193
+  backgroundnormal = resources\empty.png
+  value = 
+  height = 20
+}
+
+customization {
+  orientation = element
+  restartbackgroundanimations = true
+  delayappearanceseconds = 1.3
+  buttonaction = joinserver
+  backgroundhovered = resources\empty.png
+  label = Entra a Chimbaland
+  loopbackgroundanimations = true
+  hoverlabel = ¡Adéntrate!
+  fadein = true
+  fadeinspeed = 1.0
+  orientation_element = 1d0f9377-2473-45fd-839a-de3661af918f1655692857209
+  x = 32
+  width = 503
+  actionid = 8ed7d34e-edc3-448c-a86a-cf88c5c72f921655693610810
+  action = addbutton
+  y = 237
+  delayappearance = true
+  backgroundnormal = resources\empty.png
+  value = 26.14.189.188
+  delayappearanceeverytime = false
+  height = 29
+}
+
+customization {
+  orientation = element
+  basecolor = #ffff00
+  shadow = true
+  delayappearanceseconds = 0.5
+  splashfilepath = resources\splashes.txt
+  rotation = -15.0
+  scale = 1.0
+  refresh = false
+  bouncing = true
+  fadein = true
+  fadeinspeed = 1.5
+  orientation_element = 1d0f9377-2473-45fd-839a-de3661af918f1655692857209
+  x = 464
+  actionid = 543c7ec6-d92f-43d3-aa12-42b83885e5091655694440740
+  action = addsplash
+  y = 206
+  delayappearance = true
+  delayappearanceeverytime = false
+}
+
+customization {
+  orientation = element
+  shadow = false
+  delayappearanceseconds = 0.5
+  scale = 2.0
+  fadein = true
+  fadeinspeed = 1.0
+  orientation_element = 1d0f9377-2473-45fd-839a-de3661af918f1655692857209
+  x = 57
+  action = addtext
+  actionid = 2593d5fd-4c72-46ec-811b-c4335f7b8bf91655702112253
+  y = 83
+  delayappearance = true
+  alignment = left
+  value = %servermotd_line2:26.14.189.188%
+  delayappearanceeverytime = false
+}
+
+customization {
+  orientation = element
+  shadow = false
+  delayappearanceseconds = 1.0
+  scale = 1.0
+  fadein = true
+  fadeinspeed = 1.0
+  orientation_element = vanillabtn:button_compatibility_id:mc_titlescreen_multiplayer_button
+  x = 20
+  action = addtext
+  actionid = ff95aef0-71c6-4818-b57d-87c5d89e6d1a1655702205355
+  y = -245
+  delayappearance = true
+  alignment = left
+  value = * CHIMBALAND %serverstatus:26.14.189.188%
+  delayappearanceeverytime = false
+}
+
