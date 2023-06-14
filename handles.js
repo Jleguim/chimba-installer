@@ -1,12 +1,15 @@
 const { ipcMain } = require('electron')
 const request = require('superagent')
-const admZip = require('adm-zip')
 const path = require('path')
 const fs = require('fs-extra')
+const admZip = require('adm-zip')
 
-const { profilePath, tempPath, launcherProfilesPath, modsPath, rarPath } = require('./paths')
-const { repo, branch, modpack_name, forgeVersion, javaArgs, name, image } = require('./config')
-const mods_url = `${repo}archive/refs/heads/${branch}.zip`
+const { repo, modpack_name, image, forgeVersion, javaArgs } = require('./config.js')
+const { profilePath, tempPath, launcherProfilesPath, rarPath, modsPath } = require('./paths.js')
+const { name } = require('./config.js')
+const { branch } = require('./config.js')
+
+const mods_url = `${repo}/archive/refs/heads/${branch}.zip`
 
 ipcMain.handle('checkInstalled', () => {
     return new Promise((res, rej) => {
@@ -16,34 +19,33 @@ ipcMain.handle('checkInstalled', () => {
 })
 
 ipcMain.handle('deleteModFolder', () => {
-    const dest = modsPath
-    return fs.rm(dest, { recursive: true, force: true })
+    return fs.rm(modsPath, { recursive: true, force: true })
 })
 
-ipcMain.handle('downloadMods', (event) => {
+ipcMain.handle('downloadMods', () => {
     if (!fs.existsSync(tempPath)) fs.mkdirSync(tempPath)
 
-    const dest = rarPath
-    const stream = fs.createWriteStream(dest)
-    const pipe = request.get(mods_url).pipe(stream)
+    const stream = fs.createWriteStream(rarPath) // crea stream al que escribir
+    const pipe = request.get(mods_url).pipe(stream) // descarga y escribe al stream
+
+    console.log(mods_url)
 
     return new Promise((resolve) => {
         pipe.on('finish', () => resolve())
     })
 })
 
-ipcMain.handle('unzipMods', (event) => {
+ipcMain.handle('unzipMods', () => {
     return new Promise((resolve, reject) => {
-        var zip = new admZip(rarPath)
+        var zip = new admZip(rarPath) // crea zip
 
         var currentPath = null
         var entries = zip.getEntries()
         var regex = /.*[^\/]$/
 
-        var toReplace = `${name}-${branch}/`
-
         entries.forEach((entry, i) => {
             if (!entry.entryName.match(regex)) {
+                var toReplace = `${name}-${branch}`
                 currentPath = entry.entryName.replace(toReplace, '')
                 return
             }
@@ -60,12 +62,11 @@ ipcMain.handle('unzipMods', (event) => {
 
 })
 
-ipcMain.handle('createProfile', (event) => {
+ipcMain.handle('createProfile', () => {
     return new Promise(async (res, rej) => {
-        if (!fs.existsSync(launcherProfilesPath)) return res()
-
         const profile_data = JSON.parse(fs.readFileSync(launcherProfilesPath))
-
+        
+        if (!fs.existsSync(launcherProfilesPath)) return res()
         if (profile_data.profiles[modpack_name]) return res()
 
         profile_data.profiles[modpack_name] = {
@@ -74,7 +75,7 @@ ipcMain.handle('createProfile', (event) => {
             javaArgs: javaArgs,
             lastVersionId: forgeVersion,
             name: modpack_name,
-            type: 'custom'
+            type: "custom"
         }
 
         fs.writeFileSync(launcherProfilesPath, JSON.stringify(profile_data, 0, 3))
@@ -82,7 +83,10 @@ ipcMain.handle('createProfile', (event) => {
     })
 })
 
-ipcMain.handle('getModpackName', () => modpack_name)
-ipcMain.handle('getVersion', (event) => {
-    return require('./package.json').version
+ipcMain.handle('getVersion', () => {
+    return require("./package.json").version;
+})
+
+ipcMain.handle('getName', () => {
+    return modpack_name
 })

@@ -7,6 +7,6 @@ contextBridge.exposeInMainWorld('installer', {
     checkInstalled: () => ipcRenderer.invoke('checkInstalled'),
     createProfile: () => ipcRenderer.invoke('createProfile'),
 
+    getName: () => ipcRenderer.invoke('getName'),
     getVersion: () => ipcRenderer.invoke('getVersion'),
-    getModpackName: () => ipcRenderer.invoke('getModpackName')
 })

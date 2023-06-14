@@ -1,29 +1,26 @@
-var nameP = document.getElementById('modpack_name')
-var modpack_name
-
 function log(toLog, logged = true) {
     logged ? txt = `<p>${toLog}</p>` : txt = toLog
 
-    var div = logged ? document.querySelector('#logged') : document.querySelector('#title')
+    var div = logged ? document.querySelector("#logged") : document.querySelector("#title")
     div.innerHTML = txt
 }
 
 function changeLoadingIcon() {
-    var icon = document.querySelector('i#loading')
+    var icon = document.querySelector("i#loading");
 
-    icon.classList.remove('fa-slash')
-    icon.classList.remove('fa-spin-pulse')
-    icon.classList.add('fa-check')
+    icon.classList.remove("fa-slash");
+    icon.classList.remove("fa-spin-pulse");
+    icon.classList.add("fa-check");
 }
 
 function state(state) {
-    var span = document.querySelector('span#state')
-    span.innerHTML = state
+    var span = document.querySelector("span#state");
+    span.innerHTML = state;
 }
 
 async function updateMods() {
     try {
-        log(`<h4>${modpack_name} detectado, se actualizarán los mods.</h4>`, false)
+        log(`<h4>${MODPACK_NAME} detectado, se actualizarán los mods.</h4>`, false) //  !
 
         state('Iniciando 0/3')
         log('Descargando mods')
@@ -47,7 +44,7 @@ async function updateMods() {
 
 async function installModPack() {
     try {
-        log(`<h4>Instalando ${modpack_name}</h4>`, false)
+        log(`<h4>Instalando ${MODPACK_NAME}</h4>`, false) // !
 
         state('Iniciando 0/3')
         log('Descargando mods')
@@ -70,17 +67,8 @@ async function installModPack() {
     }
 }
 
-async function loadFooter() {
-    var footer = document.querySelector('footer')
-    var ver = await window.installer.getVersion()
-
-    footer.innerHTML = `<span id='state'>${modpack_name} Installer v${ver}</span><span><i id='loading' class='fa-solid fa-slash fa-spin-pulse' style='--fa-animation-duration: 0.5s'></i></span>`
-}
-
 async function run() {
-    modpack_name = await window.installer.getModpackName()
-    nameP.innerText = `${modpack_name} Installer`
-
+    await loadName()
     await loadFooter()
     var exists = await window.installer.checkInstalled()
     if (!exists) await installModPack()

@@ -10,7 +10,7 @@ function createWindow() {
         resizable: false,
         fullscreenable: false,
         title: `${modpack_name} Installer`,
-        icon: './public/img/icon.ico',
+        icon: "./public/img/icon.ico",
         webPreferences: {
             preload: path.join(__dirname, './public/js/preload.js')
         }
@@ -22,6 +22,5 @@ function createWindow() {
 
 app.whenReady().then(() => {
     createWindow()
-
-    require('./ipcHandles')
+    require('./handles.js')
 })
