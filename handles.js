@@ -4,11 +4,8 @@ const path = require('path')
 const fs = require('fs-extra')
 const admZip = require('adm-zip')
 
-const { repo, modpack_name, image, forgeVersion, javaArgs } = require('./config.js')
+const { repo, modpack_name, image, forgeVersion, javaArgs, name, branch } = require('./config.js')
 const { profilePath, tempPath, launcherProfilesPath, rarPath, modsPath } = require('./paths.js')
-const { name } = require('./config.js')
-const { branch } = require('./config.js')
-
 const mods_url = `${repo}/archive/refs/heads/${branch}.zip`
 
 ipcMain.handle('checkInstalled', () => {
@@ -27,9 +24,7 @@ ipcMain.handle('downloadMods', () => {
 
     const stream = fs.createWriteStream(rarPath) // crea stream al que escribir
     const pipe = request.get(mods_url).pipe(stream) // descarga y escribe al stream
-
-    console.log(mods_url)
-
+    
     return new Promise((resolve) => {
         pipe.on('finish', () => resolve())
     })
